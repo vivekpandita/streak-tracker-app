@@ -1,0 +1,142 @@
+.count-label {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+.streak-count-row {
+	display: flex;
+	align-items: center;
+	gap: 0.4em;
+}
+.streak-count-large {
+	font-size: 2.2em;
+	font-weight: 700;
+	color: #222;
+	line-height: 1;
+}
+.streak-name-small {
+	font-size: 0.95em;
+	color: #757575;
+	font-weight: 400;
+	margin-top: 0.1em;
+}
+ion-content, .classic-bg {
+	/* Restore default padding to prevent overlap */
+	--padding-top: 16px;
+	padding-top: 16px;
+}
+
+ion-list, .classic-list {
+	margin-top: 0;
+	padding-top: 0;
+}
+// Classic, neutral UI styles applied globally
+body, .ion-page, ion-content {
+	--background: #f4f4f4;
+}
+
+.title, .classic-title {
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+	font-size: 1.2em;
+	letter-spacing: 0.5px;
+}
+
+.flame-icon, .classic-flame {
+	color: #bdbdbd;
+	font-size: 1.3em;
+	margin-right: 0.5em;
+	vertical-align: middle;
+}
+
+.list, .classic-list {
+	margin-top: 0;
+}
+
+.avatar, .classic-avatar {
+	background: #e0e0e0;
+	color: #757575;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.name, .classic-name {
+	font-weight: 500;
+	margin-bottom: 0.2em;
+}
+
+.count, .classic-count {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	color: #616161;
+	font-size: 1em;
+}
+
+.flame-count, .classic-flame-count {
+	color: #bdbdbd;
+	font-size: 1em;
+	vertical-align: middle;
+}
+
+.ended, .classic-ended {
+	color: #e53935;
+	margin-left: 0.5em;
+}
+
+.empty, .classic-empty {
+	text-align: center;
+	margin-top: 4em;
+	color: #bdbdbd;
+}
+
+.empty-icon, .classic-empty-icon {
+	font-size: 2.5em;
+	color: #e0e0e0;
+	margin-bottom: 0.5em;
+}
+
+.loading, .classic-loading {
+	display: block;
+	margin: 3em auto;
+}
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";

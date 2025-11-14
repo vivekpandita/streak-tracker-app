@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Streak</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="addStreak()" style="padding: 1em;">
+    <ion-item>
+      <ion-label position="floating">Streak Name</ion-label>
+      <ion-input [(ngModel)]="name" name="name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select [(ngModel)]="type" name="type">
+        <ion-select-option value="manual">Manual</ion-select-option>
+        <ion-select-option value="automatic">Automatic</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="type === 'automatic'">
+      <ion-label position="floating">Start Date</ion-label>
+      <ion-input type="date" [(ngModel)]="startDate" name="startDate"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="!name.trim() || creating">
+      <ion-spinner *ngIf="creating" name="crescent"></ion-spinner>
+      <span *ngIf="!creating">Create Streak</span>
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,53 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-title class="classic-title">
+      <ion-icon name="flame-outline" class="classic-flame"></ion-icon>
+      Streak Tracker
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addStreak()">
+        <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="classic-bg">
+
+  <ion-list *ngIf="!loading && streaks.length" class="classic-list">
+    <ion-item-sliding *ngFor="let streak of streaks">
+      <ion-item (click)="viewStreak(streak)">
+        <ion-avatar slot="start" class="classic-avatar">
+          <ion-icon [name]="streak.type === 'manual' ? 'hand-left-outline' : 'calendar-outline'"></ion-icon>
+        </ion-avatar>
+        <ion-label class="count-label">
+          <div class="streak-count-row">
+            <span class="streak-count-large">{{ streak.count }}</span>
+            <ion-icon name="flame-outline" class="classic-flame-count"></ion-icon>
+            <span *ngIf="!streak.isActive" class="classic-ended">• Ended</span>
+          </div>
+          <div class="streak-name-small">{{ streak.name }}</div>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button fill="clear" color="danger" (click)="$event.stopPropagation(); deleteStreak(streak)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" color="warning" *ngIf="streak.isActive" (click)="$event.stopPropagation(); endStreak(streak)">
+            <ion-icon name="pause-outline"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear" color="success" *ngIf="!streak.isActive" (click)="$event.stopPropagation(); restartStreak(streak)">
+            <ion-icon name="refresh-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  <div *ngIf="!loading && !streaks.length" class="classic-empty">
+    <ion-icon name="sparkles-outline" class="classic-empty-icon"></ion-icon>
+    <p>No streaks yet.<br>Click <b>+</b> to add one!</p>
+  </div>
+
+  <ion-spinner *ngIf="loading" name="crescent" class="classic-loading"></ion-spinner>
+</ion-content>

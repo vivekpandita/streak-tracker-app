@@ -1,0 +1,7 @@
+{
+  "name": "streak-tracker-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,62 @@
+// Classic, neutral UI styles for Home page
+.classic-bg {
+	--background: #f4f4f4;
+	min-height: 100vh;
+}
+.classic-title {
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+	font-size: 1.2em;
+	letter-spacing: 0.5px;
+}
+.classic-flame {
+	color: #bdbdbd;
+	font-size: 1.3em;
+	margin-right: 0.5em;
+	vertical-align: middle;
+}
+.classic-list {
+	margin-top: 1em;
+}
+.classic-avatar {
+	background: #e0e0e0;
+	color: #757575;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.classic-name {
+	font-weight: 500;
+	margin-bottom: 0.2em;
+}
+.classic-count {
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	color: #616161;
+	font-size: 1em;
+}
+.classic-flame-count {
+	color: #bdbdbd;
+	font-size: 1em;
+	vertical-align: middle;
+}
+.classic-ended {
+	color: #e53935;
+	margin-left: 0.5em;
+}
+.classic-empty {
+	text-align: center;
+	margin-top: 4em;
+	color: #bdbdbd;
+}
+.classic-empty-icon {
+	font-size: 2.5em;
+	color: #e0e0e0;
+	margin-bottom: 0.5em;
+}
+.classic-loading {
+	display: block;
+	margin: 3em auto;
+}
