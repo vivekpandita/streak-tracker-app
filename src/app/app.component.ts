@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
+  public appPages = [
+    { title: 'Home', url: '/home', icon: 'home-outline' },
+    { title: 'Settings', url: '/settings', icon: 'settings-outline' },
+    { title: 'About', url: '/about', icon: 'information-circle-outline' },
+  ];
   constructor() {}
 }

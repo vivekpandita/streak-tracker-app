@@ -19,6 +19,14 @@ const routes: Routes = [
     path: 'streak-details',
     loadChildren: () => import('./pages/streak-details/streak-details.module').then( m => m.StreakDetailsPageModule)
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({
