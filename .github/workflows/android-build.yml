@@ -28,18 +28,16 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Ensure the Capacitor Android library is installed
+      # FIXED STEP: Install specific version 7 to match your Core version
       - name: Install Capacitor Android
-        run: npm install @capacitor/android
+        run: npm install @capacitor/android@7
 
       - name: Build Ionic App
         run: npm run build
 
-      # NEW STEP: Create the android folder from scratch
       - name: Add Android Platform
         run: npx cap add android
 
-      # Sync moves the built web assets (www/dist) into the android folder
       - name: Sync Capacitor
         run: npx cap sync android
 
