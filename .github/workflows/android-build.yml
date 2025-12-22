@@ -3,7 +3,7 @@ name: Build Android APK
 on:
   push:
     branches:
-      - main  # Trigger on push to main branch
+      - main
 
 jobs:
   build:
@@ -11,42 +11,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out the code
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # 2. Setup Java (Required for Android build)
       - name: Setup Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
 
-      # 3. Setup Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # 4. Install Dependencies
       - name: Install Dependencies
         run: npm install
 
-      # 5. Build the Ionic Web Assets
+      # Ensure the Capacitor Android library is installed
+      - name: Install Capacitor Android
+        run: npm install @capacitor/android
+
       - name: Build Ionic App
         run: npm run build
 
-      # 6. Sync Capacitor (Copy web assets to Android platform)
+      # NEW STEP: Create the android folder from scratch
+      - name: Add Android Platform
+        run: npx cap add android
+
+      # Sync moves the built web assets (www/dist) into the android folder
       - name: Sync Capacitor
         run: npx cap sync android
 
-      # 7. Build the APK using Gradle
+      - name: Grant Execute Permission for Gradlew
+        run: chmod +x android/gradlew
+
       - name: Build Debug APK
         run: cd android && ./gradlew assembleDebug
 
-     # 8. Upload the APK as an artifact
       - name: Upload APK
-        uses: actions/upload-artifact@v4  # CHANGED from v3 to v4
+        uses: actions/upload-artifact@v4
         with:
           name: app-debug
           path: android/app/build/outputs/apk/debug/app-debug.apk
