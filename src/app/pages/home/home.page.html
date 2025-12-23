@@ -1,6 +1,6 @@
 
 <ion-header [translucent]="true">
-  <ion-toolbar style="background: var(--ion-toolbar-background); color: var(--ion-toolbar-color);">
+  <ion-toolbar color="light">
     <ion-title class="classic-title">
       <ion-icon name="flame-outline" class="classic-flame"></ion-icon>
       Streak Tracker
@@ -15,10 +15,10 @@
 
 <ion-content [fullscreen]="true" class="classic-bg">
 
-  <ion-list *ngIf="!loading && streaks.length" class="classic-list" style="background: var(--ion-background-color);">
+  <ion-list *ngIf="!loading && streaks.length" class="classic-list">
     <ion-item-sliding *ngFor="let streak of streaks">
-      <ion-item (click)="viewStreak(streak)" style="background: var(--ion-item-background); color: var(--ion-item-color);">
-        <ion-avatar slot="start" class="classic-avatar" style="background: var(--ion-item-background); color: var(--ion-item-color);">
+      <ion-item (click)="viewStreak(streak)">
+        <ion-avatar slot="start" class="classic-avatar">
           <ion-icon [name]="streak.type === 'manual' ? 'hand-left-outline' : 'calendar-outline'"></ion-icon>
         </ion-avatar>
         <ion-label class="count-label">
