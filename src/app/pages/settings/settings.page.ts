@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class SettingsPage {
-  darkMode = false;
+  darkMode = true;
 
   constructor() {
     // Load dark mode preference from localStorage
